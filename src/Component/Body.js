@@ -114,7 +114,7 @@ const Body = () => {
             <div className="res-container flex flex-wrap">
                 {
                     filterResto.map((restaurant, index)=>{
-
+                        
                         return restaurant.promoted == undefined ? <Link to={"/restaurants/"+restaurant.id} key={restaurant.id}><RestaurantCard resData={restaurant} /></Link>
                         :<Link to={"/restaurants/"+restaurant.id} key={restaurant.id}><RestaurantCardPromoted resData={restaurant} /></Link>
 
