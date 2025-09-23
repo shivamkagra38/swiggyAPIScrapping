@@ -28,7 +28,7 @@ const RestaurantCard = (props) => {
     const {resName, cusine, img,star} = props.resData;
 
     return (
-        <div className="res-card m-4 p-4 w-[250px] h-[420px] rounded-lg hover:scale-105 hover:shadow-xl transition-transform bg-[#f0f0f0]">
+        <div data-testid="resCards" className="res-card m-4 p-4 w-[250px] h-[420px] rounded-lg hover:scale-105 hover:shadow-xl transition-transform bg-[#f0f0f0]">
            
             <div className="res-img">
                 <img src={img} className="rounded-lg"></img>

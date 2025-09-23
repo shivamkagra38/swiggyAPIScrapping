@@ -1,0 +1,66 @@
+import {act, fireEvent, render, screen} from "@testing-library/react";
+import "@testing-library/jest-dom";
+
+import Body from "../src/Component/Body";
+import data from "./SwiggyData.json";
+import { BrowserRouter } from "react-router-dom";
+import appStore from "../src/utils/appStore";
+import { Provider } from "react-redux";
+
+global.fetch = jest.fn(() => {
+
+    return new Promise((resolve, reject) => {
+
+        resolve({
+
+            json: () => {
+
+                return Promise.resolve(data);
+
+            }
+
+        });
+
+    });
+
+});
+
+// test("Search bar integeration test cases", async () => {
+
+//     await act(async () => {return render(<BrowserRouter><Provider store={appStore}><Body /></Provider></BrowserRouter>)} );
+
+//     const cardsbc = screen.getAllByTestId("resCards");
+
+//     //before click
+//     expect(cardsbc.length).toBe(7);
+
+//     const searchButton = screen.getByRole("button",{name: "Search"});
+
+//     const inputBox = screen.getByTestId("search-bar");
+
+//     fireEvent.change(inputBox,{target:{value:"c"}});
+
+//     fireEvent.click(searchButton);
+
+//     //4 cards expectation after click
+//     const cards = screen.getAllByTestId("resCards");
+
+//     expect(cards.length).toBe(4);
+
+// });
+
+test("Testing top rated restaurant feature", async() => {
+
+    await act(async () => {return render(<BrowserRouter><Provider store={appStore}><Body /></Provider></BrowserRouter>)} );
+
+
+    const totalCards = await screen.findAllByTestId("resCards");
+    expect(totalCards.length).toBe(7);
+
+    const trr = await screen.findByTestId("trr");
+    fireEvent.click(trr);
+
+    const afterClickCards = await screen.findAllByTestId("resCards");
+    expect(afterClickCards.length).toBe(3);
+
+})

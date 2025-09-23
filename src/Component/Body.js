@@ -73,7 +73,7 @@ const Body = () => {
 
             <div className="search-container flex justify-center mt-5 p-5">
             <div className="search-bar">
-                <input type="text" id="search-bar" className="search-bar-text p-0.5 border-1 rounded-lg" value={searchText} onChange={(e)=>{
+                <input type="text" data-testid="search-bar" id="search-bar" className="search-bar-text p-0.5 border-1 rounded-lg" value={searchText} onChange={(e)=>{
 
                     setSearchText(e.target.value);
 
@@ -92,8 +92,8 @@ const Body = () => {
             </div>
 
             <div className="filter">
-                <button className="filter-btn  bg-gray-100 px-4 py-0.5 ml-2 rounded-lg" onClick={()=>{
-                    setList(listOfRestaurants.filter((data)=>{ return data.star > 4.3; }));
+                <button data-testid="trr" className="filter-btn  bg-gray-100 px-4 py-0.5 ml-2 rounded-lg" onClick={()=>{
+                    setFilterResto(listOfRestaurants.filter((data)=>{ return data.star >= 4.5; }));
                 }}>Top Rated Restaurants</button>
             </div>
 
@@ -114,9 +114,9 @@ const Body = () => {
             <div className="res-container flex flex-wrap">
                 {
                     filterResto.map((restaurant, index)=>{
-                        
+
                         return restaurant.promoted == undefined ? <Link to={"/restaurants/"+restaurant.id} key={restaurant.id}><RestaurantCard resData={restaurant} /></Link>
-                        :<Link to={"/restaurants/"+restaurant.id} key={restaurant.id}><RestaurantCardPromoted resData={restaurant} /></Link>
+                        :<Link  to={"/restaurants/"+restaurant.id} key={restaurant.id}><RestaurantCardPromoted resData={restaurant} /></Link>
 
                     })
                 }
