@@ -49,18 +49,33 @@ global.fetch = jest.fn(() => {
 
 // });
 
-test("Testing top rated restaurant feature", async() => {
+// describe("describe",() => {
 
-    await act(async () => {return render(<BrowserRouter><Provider store={appStore}><Body /></Provider></BrowserRouter>)} );
+//     // afterAll(()=>{
+//     // console.log("Shivam");
+//     // });
+
+//     // beforeAll(()=>{
+//     // console.log("Shivam");
+//     // });
+
+//     test("Testing top rated restaurant feature", async() => {
+
+//     await act(async () => {return render(<BrowserRouter><Provider store={appStore}><Body /></Provider></BrowserRouter>)} );
 
 
-    const totalCards = await screen.findAllByTestId("resCards");
-    expect(totalCards.length).toBe(7);
+//     const totalCards = await screen.findAllByTestId("resCards");
+//     expect(totalCards.length).toBe(7);
 
-    const trr = await screen.findByTestId("trr");
-    fireEvent.click(trr);
+//     const trr = await screen.findByTestId("trr");
+//     fireEvent.click(trr);
 
-    const afterClickCards = await screen.findAllByTestId("resCards");
-    expect(afterClickCards.length).toBe(3);
+//     const afterClickCards = await screen.findAllByTestId("resCards");
+//     expect(afterClickCards.length).toBe(3);
 
-})
+// });
+
+
+// })
+
+

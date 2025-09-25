@@ -15,7 +15,7 @@ const CartPage = () => {
   }
 
   return (
-    <div className="cart-container">
+    <div  className="cart-container">
         <div className="header text-center py-16">
             Cart<br></br>
             {info.length === 0 ? <p className="font-bold">Cart is empty</p> : <button className="m-2 p-2 bg-red-500 text-white rounded-2xl" onClick={handleClearCart}>Clear Cart</button> }
@@ -26,7 +26,7 @@ const CartPage = () => {
 
                         return (
 
-                            <div className="px-4 py-2 flex justify-between items-center border-b-2 border-gray-300" key={key}>
+                            <div data-testid="cart-items" className="px-4 py-2 flex justify-between items-center border-b-2 border-gray-300" key={key}>
 
                                 <div>
                                     <span>{i.card.info.name}</span>

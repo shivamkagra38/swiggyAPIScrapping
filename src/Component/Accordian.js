@@ -29,7 +29,7 @@ const Accordian = (props) => {
 
   return (
 
-    <div className="accordian mb-3 w-6/12 mx-auto shadow-md bg-gray-50">
+    <div data-testid="accordian" className="accordian mb-3 w-6/12 mx-auto shadow-md bg-gray-50">
 
         <div className="accordian-header  p-4 flex justify-between cursor-pointer" onClick={accordianClickHandler}>
             <span className="font-semibold">{info.card.card.title} ({info.card.card.itemCards.length})</span>
@@ -44,7 +44,7 @@ const Accordian = (props) => {
 
                         return (
 
-                            <div className="px-4 py-2 flex justify-between items-center border-b-2 border-gray-300" key={key}>
+                            <div data-testid="accordian-items" className="px-4 py-2 flex justify-between items-center border-b-2 border-gray-300" key={key}>
 
                                 <div>
                                     <span>{i.card.info.name}</span>
